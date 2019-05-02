@@ -44,4 +44,26 @@ public class Client
 		}
 		return null;
 	}
+
+    /**
+    *Description This method allows to update the basic data of a veterinary client, these data include, address and
+    phone number.
+    *pre: The client was created before.
+    *post: The address and /or phone number of the client is updated.
+    *@param The new address of the client. This param could be empty.
+    *@param The new phone number of the client. This param could be empty.
+    */
+
+    /* ehhh... Revisar. ezzzzzzzz xD
+        public void updateData(String address, int number)
+        {
+            if(address != null){
+                this.address = address;
+                if(number != null) this.cel;
+            }else if( number != null ){
+                this.cel = number;
+                if(address != null) this.address = address;
+            }
+        }
+    */
 }

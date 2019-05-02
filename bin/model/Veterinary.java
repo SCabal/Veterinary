@@ -1,5 +1,6 @@
 package model;
-import java.util.ArrayList;
+
+import java.util.*;
 
 public class Veterinary
 {
@@ -25,8 +26,7 @@ public class Veterinary
 	{
 		for(int i = 0; i<rooms.size();i++)
 		{
-			double monay;
-
+            // Je ne sais pas
 		}
 	}
 	public String calculateMedication(int numRoom)
@@ -64,4 +64,20 @@ public class Veterinary
 	{
 		clients.add(client);
 	}
+    public Client findClient(String name)
+    {
+        for(int i = 0; i < clients.size(); i++){
+            if(clients.get(i).getName().equals(name)) 
+                return clients.get(i);
+        }
+        return null;
+    }
+    public Client findClientPet(String namePet)
+    {
+        for(int i = 0; i < clients.size(); i++){
+            if(clients.get(i).getPet(namePet) != null)
+                return clients.get(i);
+        }
+        return null;
+    }
 }

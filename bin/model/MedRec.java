@@ -3,11 +3,13 @@ import java.util.ArrayList;
 
 public class MedRec
 {
+// atributes
 	private boolean status;
 	private Date admissionDate;
 	private String diagnose;
 	private String symptoms;
-	private Arraylist<Drug> drugs; 
+	private ArrayList<Drug> drugs; 
+    private ArrayList<String> notes;
 //builder
 
  	public MedRec(boolean status, Date admissionDate, String diagnose, String symptoms)
@@ -17,6 +19,7 @@ public class MedRec
 		this.admissionDate = admissionDate;
 		this.diagnose = diagnose;
 		this.symptoms = symptoms;
+        this.notes = new ArrayList<String>();
 	}
 //getters
 	public boolean getStatus()
@@ -41,11 +44,24 @@ public class MedRec
 	{
 		this.status = status;
 	}
-	public void addDrug(Drug meth)
+    /*
+     * Description This method allows to add new medicines that were prescription during the hospitalization at the
+    patient stories.
+    *pre: The patient clinic story must be not null.
+    *post: New medicines were added to the patient clinic story.
+    *@param The medicine name. This param must be not null.
+    *@param The medicine dose, this param refers to the amount of medicine supplied to the pet each time
+    according the frequence assigned.
+    *@param The medicine cost by each dose. This param could be empty.
+    *@param The frequency of medicine application. This param could be empty.
+    *@return A message that indiques if medicine was added to the patient clinic story
+    */
+	public String addDrug(String name, String dose, double costPerDose, String administration )
 	{
-		drugs.add(meth);
+        Drug temp = new Drug(name, dose, costPerDose, administration);
+		drugs.add(temp);
+        return temp.getName() + " has been added succesfully <3."
 	}
-
 	public String printMedRec()
 	{
 		String mediRec = "";
@@ -72,5 +88,15 @@ public class MedRec
 		}
 		return mediRec;
 	}
+
+    public void addNote(String note)
+    {
+        notes.add(note);
+    }
+
+    public void addSymptom(String symptom)
+    {
+        this.symptoms += "\n" + symptom + "\n";
+    }
 
 }
